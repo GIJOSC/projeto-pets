@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Titulo from '../ui/components/Titulo/Titulo'
+import Lista from '../ui/components/Lista/Lista'
 
 
 function MeuComponente() {
@@ -15,6 +16,7 @@ const Home: NextPage = () => {
                   pode <strong>adotar um pet virtualmente</strong> 
               </span>}
            />
+           <Lista />
     </div>
   )
 }
