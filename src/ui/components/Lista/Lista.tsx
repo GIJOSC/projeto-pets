@@ -12,6 +12,7 @@ import { TextService } from '../../../data/services/TextService'
  
 interface ListaProps {
     pets: Pet[];
+    onSelect: (pet: Pet) => void;
 }
 
 export default function Lista( props: ListaProps) {
@@ -23,11 +24,16 @@ export default function Lista( props: ListaProps) {
                   <ItemLista key={pet.id}>
                   <Foto src={pet.foto}  alt={pet.nome} />
                   <Informacoes>
-                      <Nome>{pet.nome}</Nome>s
+                      <Nome>{pet.nome}</Nome>
                       <Descricao>
                        {TextService.limitarTexto(pet.historia, tamanhoMaximoTexto)}
                       </Descricao>
-                      <Button variant='contained' fullWidth>Adotar {pet.nome}</Button>
+                      <Button 
+                      variant='contained' 
+                      fullWidth
+                      onClick={ () => props.onSelect(pet)}
+                      >
+                            Adotar {pet.nome}</Button>
                   </Informacoes>
               </ItemLista>
               ))}            
